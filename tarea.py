@@ -20,6 +20,7 @@ def registrar_trabajador():
     descuento_afp=sueldo_bruto*0.12   #Descuento AFP (12%)
     sueldo_liquido=sueldo_bruto-descuento_salud-descuento_afp
 
+#crear archivo donde se almacenarán los datos proporcionados
     matriz=[[nombre_trabajador, cargo, sueldo_bruto, descuento_salud, descuento_afp, sueldo_liquido]]
     with open('Archivo_trabajadores.csv','w', newline='',encoding='utf-8') as archivo_csv:
         escritor_csv = csv.writer(archivo_csv)
@@ -27,6 +28,7 @@ def registrar_trabajador():
         escritor_csv.writerows(matriz)
     print("Trabajador registrado exitosamente.")
 
+#listar datos
 def listar_trabaj():
     try:
         with open('Archivo_trabajadores.csv','r',encoding='utf-8') as archivo_csv:
@@ -36,6 +38,7 @@ def listar_trabaj():
     except:
         print("Por ahora no hay trabajadores registrados.")
 
+#imprimir planilla de datos de sueldo
 def imprimir_planilla():
     try:
         with open('Archivo_trabajadores.csv','r',encoding='utf-8') as archivo_csv:
@@ -45,6 +48,7 @@ def imprimir_planilla():
     except:
         print("No hay planilla disponible.")
 
+#añadir a nuestro menú definido, las funciones en cada una de las opciones(1/2/3) 
 def main():
     while True:
         mostrar_menu()

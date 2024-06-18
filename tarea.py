@@ -22,7 +22,7 @@ def registrar_trabajador():
 
 #crear archivo donde se almacenarán los datos proporcionados
     matriz=[[nombre_trabajador, cargo, sueldo_bruto, descuento_salud, descuento_afp, sueldo_liquido]]
-    with open('Archivo_trabajadores.csv','w', newline='',encoding='utf-8') as archivo_csv:
+    with open('Archivo_trabajadores.csv','a', newline='',encoding='utf-8') as archivo_csv: #le cambie la w a la 'a'
         escritor_csv = csv.writer(archivo_csv)
         escritor_csv.writerow(['TRABAJADOR', 'CARGO', 'SUELDO BRUTO', 'DESCUENTO SALUD', 'DESCUENTO AFP', 'SUELDO LÍQUIDO'])
         escritor_csv.writerows(matriz)
@@ -71,4 +71,5 @@ def main():
         except ValueError:
             print("Error. Por favor, ingrese un número.\n")
 main()
+
 
